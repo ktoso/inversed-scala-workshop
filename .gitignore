@@ -1,0 +1,7 @@
+*.class
+*.tmp
+*~
+project/target
+target
+.idea
+.idea_modules
