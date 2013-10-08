@@ -12,7 +12,7 @@ import net.virtualvoid.sbt._
 import org.sbtidea.SbtIdeaPlugin._
 
 trait Formatting {
-  val bigfootScalariformSettings =
+  val scalariformSettings =
     defaultScalariformSettings ++ Seq(
       ScalariformKeys.preferences <<= baseDirectory.apply(getScalariformPreferences)
     )
