@@ -1,6 +1,5 @@
 package pl.project13.scala.warsjawa
 
-class MyOwnQueryDSL(
-    bananan: String) {
+class MyOwnQueryDSL(bananan: String) {
 
 }
