@@ -45,7 +45,7 @@ object ApplicationBuild extends Build with Formatting {
   val root = Project("wars-jawa", file("."))
   .settings(defaultSettings: _*)
   .settings(
-    libraryDependencies ++= generalDependencies ++ testingAll,
+    libraryDependencies ++= generalDependencies ++ testingAll ++ Seq(scalaLib),
     ideaExcludeFolders := ".idea" :: ".idea_modules" :: Nil
   )
 
