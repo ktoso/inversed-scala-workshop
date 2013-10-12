@@ -22,6 +22,8 @@ object Dependencies {
 
   val jsr305    = "com.google.code.findbugs" % "jsr305" % "1.3.9"
 
+  val scalaLib  = "org.scala-lang" % "scala-library" % "2.10.3" withSources()
+
   // testing
   val scalaTest = "org.scalatest"  % "scalatest_2.10" % "1.9.1"
   val mockito   = "org.mockito"    % "mockito-all"    % "1.9.5"
