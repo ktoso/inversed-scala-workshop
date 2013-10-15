@@ -1,59 +1,48 @@
 package pl.project13.scala.warsjawa
 
 object MyOption {
+
+  /** go from a nullable value, into an Option, so it can be either Some(value) or None */
   def apply[A](in: A): MyOption[A] =
-    if (in == null)
-      None
-    else
-      new Some(in)
+    ???
 }
 
-sealed trait MyOption[+A] {
+trait MyOption[+A] {
 
-  def get: A
+  /** get the value, or blow up if None*/
+  def get: A = ???
 
-  def isEmpty: Boolean
+  /** true if has some value inside */
+  def isEmpty: Boolean = ???
 
-  def isDefined: Boolean = !isEmpty
-
-
-  // call by name
-  def getOrElse[B >: A](default: => B): B
-
+  /** opposite of isEmpty, true if no value inside */
+  def isDefined: Boolean = ???
 
 
-  def map[B](f : A => B): MyOption[B]
+  /** get the value inside for Some, or for None, return the default */
+  def getOrElse[B >: A](default: => B): B = ??? // todo what about getOrElse { throw new Exception("Boom!") }
 
-  def filter(p: A => Boolean): MyOption[A]
 
+  // more functional things
 
-  def flatMap[B](f : A => MyOption[B])
-  : MyOption[B] = ???
+  /** Map to a different value, what to do with None? */
+  def map[B]    (f : A =>          B): MyOption[B] = ???
+
+  /** given a function that can fail, return a None or Some here */
+  def flatMap[B](f : A => MyOption[B]): MyOption[B] = ???
+
+  /** if precicate applies, keep Some, else return a None */
+  def filter(p: A => Boolean): MyOption[A] = ???
 
 }
 
 /* todo case */
-class Some[A](t: A) extends MyOption[A] {
-  def get = t
+class Some[A](value: A) extends MyOption[A] {
 
-  def isEmpty = false
-
-  def getOrElse[B >: A](default: => B) = get
-
-  def map[B](f: (A) => B): MyOption[B] = new Some(f(get))
-
-  def filter(p: (A) => Boolean): MyOption[A] = if(p(t)) this else None
+  // todo implement stuff here!
 }
 
-object None extends MyOption[Nothing]{
-  def get = throw new NullPointerException("Was None!")
-
-  def isEmpty = true
-
-  def getOrElse[T](default: => T) = default
-
-  def map[B](f: (Nothing) => B): MyOption[B] = this
-
-  def filter(p: (Nothing) => Boolean): MyOption[Nothing] = None
-}
+//object None extends MyOption[???] { // todo what Type do we need here?
+//  // todo implement this stuff
+//}
 

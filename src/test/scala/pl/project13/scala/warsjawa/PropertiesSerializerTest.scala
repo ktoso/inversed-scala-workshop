@@ -8,6 +8,9 @@ class PropertiesSerializerTest extends FlatSpec
 
   behavior of "PropertiesSerializer"
 
+  implicit val writes = ??? // todo provide instance of typeclass
+
+
   it should "write" in {
     // given
     import PropertiesSerializer._
@@ -18,14 +21,12 @@ class PropertiesSerializerTest extends FlatSpec
     )
 
     // when
-    val got =
-      new CanBeWritten(map)
-        .toProperties(PropertiesSerializer.writes)
+//    val got = map.toProperties // todo make this compile!
 
     // then
-    got should equal (
-      """|value=1
-         |test=2""".stripMargin)
+//    got should equal (
+//      """|value=1
+//         |test=2""".stripMargin)
   }
 
 }

@@ -8,7 +8,13 @@ class MyOwnIfTest extends FlatSpec with ShouldMatchers {
   behavior of "MyOwnIf"
   
   import MyOwnIf._
-  
+
+  def makeMeCompile(b: Boolean) =
+    ifAndOnlyIf(b) { "yes!" }
+
+  def makeMeCompile2(b: Boolean): String =
+    ifAndOnlyIf(b) { "yes!" } otherwise { "no!" }
+
   it should "say yes when true" in {
     val value = ifAndOnlyIf(true) { "yes" }
 

@@ -16,6 +16,10 @@ object MyConfig {
   trait MongoConfig {
     this: Conf =>
 
+  }
+
+  trait SQSConfig {
+    this: Conf =>
 
   }
 
