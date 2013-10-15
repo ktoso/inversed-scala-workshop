@@ -42,7 +42,7 @@ class Some[A](value: A) extends MyOption[A] {
   // todo implement stuff here!
 }
 
-//object None extends MyOption[???] { // todo what Type do we need here?
+//class None[A] extends MyOption[A] { // todo what Type do we need here?
 //  // todo implement this stuff
 //}
 
