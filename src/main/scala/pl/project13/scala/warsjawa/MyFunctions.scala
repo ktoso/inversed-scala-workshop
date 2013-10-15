@@ -2,9 +2,9 @@ package pl.project13.scala.warsjawa
 
 class MyFunctions {
 
-  val fun1 = (i: Int) => { i * i }
+  val fun1 = (i: Int) => ???
 
-  val fun2 = (i: Int) => i * i
+  val fun2 = (i: Int) => ???
 
   val fun3: Int => Int = i => i * i
 

@@ -42,6 +42,8 @@ object ApplicationBuild extends Build with Formatting {
     scalaVersion := appScalaVersion
   ) ++ scalariformSettings
 
+  val common = Project("common", file("common"))
+
   val root = Project("wars-jawa", file("."))
   .settings(defaultSettings: _*)
   .settings(

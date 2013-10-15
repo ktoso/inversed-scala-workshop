@@ -18,13 +18,14 @@ class PropertiesSerializerTest extends FlatSpec
     )
 
     // when
-    val got = map.toProperties
+    val got =
+      new CanBeWritten(map)
+        .toProperties(PropertiesSerializer.writes)
 
     // then
     got should equal (
       """|value=1
-         |test=2
-         |""".stripMargin)
+         |test=2""".stripMargin)
   }
 
 }

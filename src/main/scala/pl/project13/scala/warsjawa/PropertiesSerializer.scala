@@ -6,12 +6,19 @@ trait Writes[T] {
 
 object PropertiesSerializer {
 
-  implicit val writes = ???
+  implicit val writes = new Writes[Map[String, String]] {
+    def write(t: Map[String, String]): String = {
+      t.map {
+        case (key, value) =>
+          s"""$key=$value"""
+      } mkString("\n")
+    }
+  }
 
-  // ???
-  class CanBeWritten[A](a: A) {
+  implicit class CanBeWritten[A](a: A) {
 
-    def toProperties(implicit writes: Writes[A]): String = ???
+    def toProperties(implicit writes: Writes[A]): String =
+      writes.write(a)
   }
 
 }
