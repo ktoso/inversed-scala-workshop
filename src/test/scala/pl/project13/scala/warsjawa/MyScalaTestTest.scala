@@ -9,7 +9,7 @@ class MyScalaTestTest extends FlatSpec with ShouldMatchers {
 
   it should "throw an assertion error" in{
     val ex = intercept[AssertionError] {
-      "nietoperz" powinienByćRówny "bananowi"
+//      "nietoperz" powinienByćRówny "bananowi" // todo make me compile
     }
   }
 
